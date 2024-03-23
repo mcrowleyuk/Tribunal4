@@ -20,10 +20,24 @@ namespace Tribunal4
 
             SqlConnection _con = new SqlConnection(connectionString);
             
-            string queryStatement = "SELECT * FROM Tribunal.Registration";
+            string queryStatement = "SELECT tribunal_ref FROM Tribunal.Registration";
 
             SqlCommand _cmd = new SqlCommand(queryStatement, _con);
-            
+
+            // extract the response and display in list view
+
+            SqlDataReader reader = _cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                //Form1.CurrentReg.Text = reader.GetString(0);
+            }
+       
+
+            //
+
+            // close connection
+
             _con.Close();
 
             

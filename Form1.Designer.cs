@@ -1,6 +1,6 @@
 ﻿namespace Tribunal4
 {
-    partial class Form1
+    public partial class Form1
     {
         /// <summary>
         ///  Required designer variable.
@@ -31,6 +31,7 @@
             ShowTribunals = new Button();
             listBox1 = new ListBox();
             textBox1 = new TextBox();
+            CurrentReg = new TextBox();
             SuspendLayout();
             // 
             // ShowTribunals
@@ -59,16 +60,26 @@
             textBox1.Size = new Size(177, 27);
             textBox1.TabIndex = 2;
             // 
+            // CurrentReg
+            // 
+            CurrentReg.Location = new Point(43, 286);
+            CurrentReg.Name = "CurrentReg";
+            CurrentReg.Size = new Size(125, 27);
+            CurrentReg.TabIndex = 3;
+            CurrentReg.Text = "BLANK";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(CurrentReg);
             Controls.Add(textBox1);
             Controls.Add(listBox1);
             Controls.Add(ShowTribunals);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -78,5 +89,6 @@
         private Button ShowTribunals;
         private ListBox listBox1;
         private TextBox textBox1;
+        public TextBox CurrentReg;
     }
 }
