@@ -14,13 +14,13 @@ namespace Tribunal4
 
         public TribunalManager() {; }
 
-        public bool ListTribunals()
+        public bool ListTribunals() 
         {
-            string connectionString = "server=(local);database=Tribunal;integrated Security=SSPI;";
+            const string connectionString = "server=(local);database=Tribunal;integrated Security=SSPI;";
+
+            const string queryStatement = "SELECT tribunal_ref FROM Tribunal.Registration";
 
             SqlConnection _con = new SqlConnection(connectionString);
-            
-            string queryStatement = "SELECT tribunal_ref FROM Tribunal.Registration";
 
             SqlCommand _cmd = new SqlCommand(queryStatement, _con);
 
@@ -45,22 +45,26 @@ namespace Tribunal4
             return false; // test only
         
         }
-        public bool CreateNewTribunal() { 
-        
+        public bool CreateNewTribunal() 
+        {
             // establish a connection to sql server
 
+            const string connectionString = "server=(local);database=Tribunal;integrated Security=SSPI;";
+
+            SqlConnection _con = new SqlConnection(connectionString);
+
+            // Insert new record
 
 
+            //
 
-            // insert the new record
 
+            // close connection
 
-            
-            
-            
-            
-            
-            return false; }
+            _con.Close();
+
+            return false; // Test only
+          }
 
         public bool SetR1Date() { return false; }
 
@@ -69,14 +73,9 @@ namespace Tribunal4
         public bool SetBundleDue() { return false; }
 
 
-
-
-    //data
-
-
-      //  private String TribunalReference("");
-      //  private DateOnly r1Date;
-       // private DateOnly hearingDate;
+        private string TribunalReference;
+        private DateOnly r1Date;
+        private DateOnly hearingDate;
 
     }
 }

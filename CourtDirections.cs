@@ -14,12 +14,12 @@ namespace Tribunal4
         public CourtDirections() { 
             list_directions = new Dictionary<int, string>();} // default construtor
         
-        public CourtDirections(ref CourtDirections rcourtDirections) {
+        public CourtDirections(ref CourtDirections rcourtDirections) {    //copy Constructor
 
 
-            list_directions = rcourtDirections.list_directions
+            list_directions = rcourtDirections.list_directions;
             
-            ; } // Copy Constructor
+             } // Copy Constructor
 
         public void addDirection(int iDirNum, string direction) {; }
 
@@ -29,7 +29,7 @@ namespace Tribunal4
 
         // private
 
-
+        string strTrinunalref;
         private Dictionary<int, string> list_directions;
     }
 }
