@@ -11,25 +11,28 @@ namespace Tribunal4
     {
         // public methods
 
-        public CourtDirections() { 
-            list_directions = new Dictionary<int, string>();} // default construtor
+        public CourtDirections() 
+        {
+            strTribunalref = "";
+            list_directions = new Dictionary<int, string>();
+        } // default construtor
         
-        public CourtDirections(ref CourtDirections rcourtDirections) {    //copy Constructor
-
-
+        public CourtDirections(ref CourtDirections rcourtDirections) //copy Constructor
+        {    
             list_directions = rcourtDirections.list_directions;
             
-             } // Copy Constructor
+        } // Copy Constructor
 
+        public void setTribunalRef(ref string rstrTribunalref) { strTribunalref = rstrTribunalref; }
         public void addDirection(int iDirNum, string direction) {; }
 
-        public Dictionary<int,string> listDirections() { return null; }
+        public ref string getTribunalRef() { return ref strTribunalref; }
 
-
+        public Dictionary<int,string> getDirections() { return list_directions; }
 
         // private
 
-        string strTrinunalref;
+        string strTribunalref;
         private Dictionary<int, string> list_directions;
     }
 }

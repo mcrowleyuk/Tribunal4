@@ -20,25 +20,34 @@ namespace Tribunal4
 
             const string queryStatement = "SELECT tribunal_ref FROM Tribunal.Registration";
 
-            SqlConnection _con = new SqlConnection(connectionString);
+            //establish connection
 
-            SqlCommand _cmd = new SqlCommand(queryStatement, _con);
-
-            // extract the response and display in list view
-
-            SqlDataReader reader = _cmd.ExecuteReader();
-
-            while (reader.Read())
+            try
             {
-                //Form1.CurrentReg.Text = reader.GetString(0);
+                SqlConnection _con = new SqlConnection(connectionString);
+
+                SqlCommand _cmd = new SqlCommand(queryStatement, _con);
+
+                // extract the response and display in list view
+
+                SqlDataReader reader = _cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    //Form1.CurrentReg.Text = reader.GetString(0);
+                }
+
+
+                //
+
+                // close connection
+
+                _con.Close();
             }
-       
-
-            //
-
-            // close connection
-
-            _con.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error establishing SQL Query: Error" + ex.GetType());
+            }
 
             
             
