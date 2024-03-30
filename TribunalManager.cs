@@ -6,10 +6,11 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+//using Form1;
 
 namespace Tribunal4
 {
-    internal class TribunalManager
+    public class TribunalManager
     {
 
         public TribunalManager() {; }
@@ -34,7 +35,7 @@ namespace Tribunal4
 
                 while (reader.Read())
                 {
-                    //Form1.CurrentReg.Text = reader.GetString(0);
+                    TribunalReference = reader.GetString(0);// Tribunal Ref retrieved
                 }
 
 
@@ -80,6 +81,8 @@ namespace Tribunal4
         public bool SetFinalEvidence() { return false; }
 
         public bool SetBundleDue() { return false; }
+
+        public ref string getTribunalref() { return ref TribunalReference; }
 
 
         private string TribunalReference;

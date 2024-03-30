@@ -16,12 +16,15 @@ namespace Tribunal4
         {
 
 
-            listBox1.Text = "Button Clicked";
-            textBox1.Text = "Button Clicked";
+            listBox1.Text = "Button Clicked"; // debug
+            textBox1.Text = "Button Clicked"; // debug
 
-            // make the sql call and populate listview
+            // event handler to make the sql call and populate listview
             myTribunalManager.ListTribunals();
 
+            // now populate the result - as a test we only retrieve a single record into a text box (later to be a listview)
+
+            CurrentReg.Text = myTribunalManager.getTribunalref();
 
         }
 
@@ -33,5 +36,7 @@ namespace Tribunal4
         {
 
         }
+
+       
     }
 }

@@ -42,7 +42,7 @@
             ShowTribunals.TabIndex = 0;
             ShowTribunals.Text = "Show Tribunals List";
             ShowTribunals.UseVisualStyleBackColor = true;
-            ShowTribunals.Click += button1_Click;
+            ShowTribunals.Click += button1_Click; // subscribes to click event
             // 
             // listBox1
             // 
@@ -62,11 +62,13 @@
             // 
             // CurrentReg
             // 
+            CurrentReg.Enabled = false;
             CurrentReg.Location = new Point(43, 286);
             CurrentReg.Name = "CurrentReg";
             CurrentReg.Size = new Size(125, 27);
             CurrentReg.TabIndex = 3;
             CurrentReg.Text = "BLANK";
+            //CurrentReg.TextChanged += CurrentReg_TextChanged;
             // 
             // Form1
             // 
