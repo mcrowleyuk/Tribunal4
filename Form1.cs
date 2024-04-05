@@ -5,9 +5,9 @@ using Tribunal4;
 
 namespace Tribunal4
 {
-    public partial class Form1 : Form
+    public partial class ExitApp : Form
     {
-        public Form1()
+        public ExitApp()
         {
             InitializeComponent();
         }
@@ -17,14 +17,13 @@ namespace Tribunal4
 
 
             listBox1.Text = "Button Clicked"; // debug
-            textBox1.Text = "Button Clicked"; // debug
 
             // event handler to make the sql call and populate listview
             myTribunalManager.ListTribunals();
 
             // now populate the result - as a test we only retrieve a single record into a text box (later to be a listview)
 
-            CurrentReg.Text = myTribunalManager.getTribunalref();
+            CurrentTribunal.Text = myTribunalManager.getTribunalref();
 
         }
 
@@ -37,6 +36,34 @@ namespace Tribunal4
 
         }
 
-       
+
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            // MC consider any other close down steps prior to exit
+            // SQL connections etc.
+
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
