@@ -18,7 +18,7 @@ namespace Tribunal4
         {
 
 
-            listBox1.Text = "Button Clicked"; // debug
+            //listBox1.Text = "Button Clicked"; // debug
 
             // event handler to make the sql call and populate listview
             myTribunalManager.ListTribunals();
@@ -50,12 +50,12 @@ namespace Tribunal4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           // refresh - MCC to do     
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-
+            // refresh - MCC to do   
         }
 
         private void button1_Click_2(object sender, EventArgs e)

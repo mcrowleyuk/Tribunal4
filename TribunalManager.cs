@@ -6,7 +6,6 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-//using Form1;
 
 namespace Tribunal4
 {
@@ -17,9 +16,7 @@ namespace Tribunal4
 
         public bool ListTribunals() 
         {
-            const string connectionString = "server=(local);database=Tribunal;integrated Security=SSPI;";
-
-            const string queryStatement = "SELECT tribunal_ref FROM Tribunal.dbo.Registration";
+           
 
             //establish connection
 
@@ -33,13 +30,11 @@ namespace Tribunal4
 
                 SqlDataReader reader = _cmd.ExecuteReader();
 
-                while (reader.Read())
+                while (reader.Read()) 
                 {
-                    TribunalReference = reader.GetString(0);// Tribunal Ref retrieved
+                   TribunalReference = reader.GetString(0);// Tribunal Ref retrieved
                 }
 
-
-                //
 
                 // close connection
 
@@ -57,16 +52,7 @@ namespace Tribunal4
         }
         public bool CreateNewTribunal(string strRef, string strLastName, string strFirstname)
         {
-            // establish a connection to sql server 
-
-
-            const string connectionString = "server=(local);database=Tribunal;integrated Security=SSPI;";
-
-
-            //DEBUG ONLY - Will eventually insert the passed in parameters
-            const string queryStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) values ('EH734/024/004', 'Crowley4', 'Martin4')";
-
-           
+                    
 
             try
             {
@@ -75,11 +61,10 @@ namespace Tribunal4
                 SqlConnection _con = new SqlConnection(connectionString);
 
 
-
                 // Insert new record
 
 
-                SqlCommand _cmd = new SqlCommand(queryStatement, _con);
+                SqlCommand _cmd = new SqlCommand(TribunalInsertStatement, _con);
 
 
 
@@ -110,5 +95,20 @@ namespace Tribunal4
         private DateOnly r1Date;
         private DateOnly hearingDate;
 
+        // const SQL statements
+
+        //private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) " +
+        //     "values (@strref, @strLastName, @strFirstname)";
+
+
+        // MCC DEBUG - TO REPLACE WITH ABOVE LINE ON CHECK-IN
+        private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) values ('A', 'B', 'C')";
+        
+
+        private const string queryStatement = "SELECT tribunal_ref FROM Tribunal.dbo.Registration";
+
+        //private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;";  //MCC DEBUG REF TO LOCAL HOSTNAME
+        private const string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;";  //MCC DEBUG REF TO LOCAL HOSTNAME
     }
 }
+
