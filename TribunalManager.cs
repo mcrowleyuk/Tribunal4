@@ -108,7 +108,7 @@ namespace Tribunal4
         private const string queryStatement = "SELECT tribunal_ref FROM Tribunal.dbo.Registration";
 
         //private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;";  //MCC DEBUG REF TO LOCAL HOSTNAME
-        private const string connectionString = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;";  //MCC DEBUG REF TO LOCAL HOSTNAME
+        private const string connectionString = "Data Source=LAPTOP-6RHK6OSN\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;";  //MCC DEBUG REF TO LOCAL HOSTNAME
     }
 }
 
