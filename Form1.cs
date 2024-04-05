@@ -1,5 +1,7 @@
 
 
+using System.CodeDom;
+using System.Diagnostics.Eventing.Reader;
 using Tribunal4;
 
 
@@ -58,7 +60,25 @@ namespace Tribunal4
 
         private void button1_Click_2(object sender, EventArgs e)
         {
+            // Add a tribunal prep
+            // First check that the 3 mandatory fields are not null
 
+            if ((this.NewTribunalNumber.Text != "") && 
+               (this.LastName.Text != "") &&
+               (this.Firstname.Text != ""))
+            {
+                // Tribunal Manager - add record call
+
+                myTribunalManager.CreateNewTribunal(NewTribunalNumber.Text,LastName.Text,Firstname.Text);
+
+            }
+            else
+            {
+
+                MessageBox.Show("Error - Tribunal Ref, Lastname and Firstname must be populated");
+            }
+
+            //
         }
 
         private void label1_Click(object sender, EventArgs e)
