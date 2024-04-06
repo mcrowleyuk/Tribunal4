@@ -67,13 +67,19 @@ namespace Tribunal4
 
                 SqlConnection _con = new SqlConnection(connectionString);
 
+                _con.Open();
 
                 // Insert new record
 
 
                 SqlCommand _cmd = new SqlCommand(TribunalInsertStatement, _con);
 
+                _cmd.Parameters.AddWithValue("@strref", strRef);
+                _cmd.Parameters.AddWithValue("@strLastName", strLastName);
+                _cmd.Parameters.AddWithValue("@strFirstname", strFirstname);
+               
 
+                _cmd.ExecuteNonQuery();
 
                 // close connection
 
@@ -105,13 +111,9 @@ namespace Tribunal4
 
         // const SQL statements
 
-        //private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) " +
-        //     "values (@strref, @strLastName, @strFirstname)";
+        private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) " +
+             "values (@strref, @strLastName, @strFirstname)";
 
-
-        // MCC DEBUG - TO REPLACE WITH ABOVE LINE ON CHECK-IN
-        private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) values ('A', 'B', 'C')";
-        
 
         private const string queryStatement = "SELECT tribunal_ref FROM Tribunal.dbo.Registration";
 

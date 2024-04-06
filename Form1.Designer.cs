@@ -39,11 +39,12 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            TribunalHelpMsg = new Label();
             SuspendLayout();
             // 
             // ShowTribunals
             // 
-            ShowTribunals.Location = new Point(298, 253);
+            ShowTribunals.Location = new Point(288, 268);
             ShowTribunals.Name = "ShowTribunals";
             ShowTribunals.Size = new Size(201, 43);
             ShowTribunals.TabIndex = 0;
@@ -59,6 +60,8 @@
             ListTribunals.Name = "ListTribunals";
             ListTribunals.Size = new Size(475, 164);
             ListTribunals.TabIndex = 1;
+            ListTribunals.SelectedIndexChanged += ListTribunals_SelectedIndexChanged;
+            ListTribunals.MouseDoubleClick += ListTribunals_MouseDoubleClick;
             // 
             // CurrentTribunal
             // 
@@ -70,7 +73,7 @@
             // 
             // exit
             // 
-            exit.Location = new Point(2, 3);
+            exit.Location = new Point(704, 1);
             exit.Name = "exit";
             exit.Size = new Size(94, 29);
             exit.TabIndex = 3;
@@ -139,11 +142,23 @@
             label3.TabIndex = 10;
             label3.Text = "Firstname to add";
             // 
+            // TribunalHelpMsg
+            // 
+            TribunalHelpMsg.AutoSize = true;
+            TribunalHelpMsg.Location = new Point(195, 240);
+            TribunalHelpMsg.Name = "TribunalHelpMsg";
+            TribunalHelpMsg.Size = new Size(413, 20);
+            TribunalHelpMsg.TabIndex = 11;
+            TribunalHelpMsg.Text = "Double Click a Tribunal Reference to view key direction dates";
+            TribunalHelpMsg.Visible = false;
+            TribunalHelpMsg.Click += TribunalHelpMsg_Click;
+            // 
             // ExitApp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(TribunalHelpMsg);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -175,5 +190,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Label TribunalHelpMsg;
     }
 }

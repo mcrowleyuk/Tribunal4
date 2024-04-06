@@ -1,6 +1,7 @@
 
 
 using System.CodeDom;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using Tribunal4;
 
@@ -16,7 +17,7 @@ namespace Tribunal4
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.TribunalHelpMsg.Visible = true;
 
             //listBox1.Text = "Button Clicked"; // debug
 
@@ -26,14 +27,18 @@ namespace Tribunal4
 
             //pass in a list which is then populated with the output from sql query
             bool bResult;
-            
+
             bResult = myTribunalManager.ListTribunals(ref strListTribunals);
 
             // now populate the result - as a test we only retrieve a single record into a text box (later to be a listview)
 
             CurrentTribunal.Text = myTribunalManager.getTribunalref();
 
-            // now populate the full list
+            // clear the ListView
+
+            this.ListTribunals.Items.Clear();
+
+            // now populate the full list with the query result
 
             if (bResult)
             {
@@ -45,12 +50,11 @@ namespace Tribunal4
 
         }
 
-        // Create the manager class here
-        TribunalManager myTribunalManager
-            = new TribunalManager();
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.TribunalHelpMsg.Visible = false;
 
         }
 
@@ -87,6 +91,11 @@ namespace Tribunal4
 
                 myTribunalManager.CreateNewTribunal(NewTribunalNumber.Text, LastName.Text, Firstname.Text);
 
+                MessageBox.Show("Tribunal Record Added");
+
+                this.NewTribunalNumber.Text = "EH234/24/XXXX";
+                this.LastName.Text = "";
+                this.Firstname.Text = "";
             }
             else
             {
@@ -98,6 +107,45 @@ namespace Tribunal4
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // Create the manager class here
+        TribunalManager myTribunalManager
+            = new TribunalManager();
+
+        private void ListTribunals_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // On a select item do nothing as yet
+        }
+
+        private void ListTribunals_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // On a double click do the following
+
+            /* clear the list view
+             * 
+             *
+             * 
+             * 
+             * Query the associated directions with this tribunal
+             * 
+             * 
+             * Display each direction in the list view
+             * 
+             * 
+             * 
+             * */
+
+            this.ListTribunals.Items.Clear();
+
+            MessageBox.Show("List of associate court directions will be displayed in the listbox");
+
+        }
+
+        private void TribunalHelpMsg_Click(object sender, EventArgs e)
         {
 
         }
