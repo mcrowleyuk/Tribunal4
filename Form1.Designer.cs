@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             ShowTribunals = new Button();
-            listBox1 = new ListBox();
+            ListTribunals = new ListBox();
             CurrentTribunal = new TextBox();
             exit = new Button();
             NewTribunalNumber = new TextBox();
@@ -51,14 +51,14 @@
             ShowTribunals.UseVisualStyleBackColor = true;
             ShowTribunals.Click += button1_Click;
             // 
-            // listBox1
+            // ListTribunals
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 20;
-            listBox1.Location = new Point(160, 73);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(475, 164);
-            listBox1.TabIndex = 1;
+            ListTribunals.FormattingEnabled = true;
+            ListTribunals.ItemHeight = 20;
+            ListTribunals.Location = new Point(160, 73);
+            ListTribunals.Name = "ListTribunals";
+            ListTribunals.Size = new Size(475, 164);
+            ListTribunals.TabIndex = 1;
             // 
             // CurrentTribunal
             // 
@@ -153,7 +153,7 @@
             Controls.Add(NewTribunalNumber);
             Controls.Add(exit);
             Controls.Add(CurrentTribunal);
-            Controls.Add(listBox1);
+            Controls.Add(ListTribunals);
             Controls.Add(ShowTribunals);
             Name = "ExitApp";
             Text = "Form1";
@@ -165,7 +165,7 @@
         #endregion
 
         private Button ShowTribunals;
-        private ListBox listBox1;
+        private ListBox ListTribunals;
         private TextBox CurrentTribunal;
         private Button exit;
         private TextBox NewTribunalNumber;

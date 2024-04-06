@@ -21,11 +21,27 @@ namespace Tribunal4
             //listBox1.Text = "Button Clicked"; // debug
 
             // event handler to make the sql call and populate listview
-            myTribunalManager.ListTribunals();
+
+            List<string> strListTribunals = new List<string>();
+
+            //pass in a list which is then populated with the output from sql query
+            bool bResult;
+            
+            bResult = myTribunalManager.ListTribunals(ref strListTribunals);
 
             // now populate the result - as a test we only retrieve a single record into a text box (later to be a listview)
 
             CurrentTribunal.Text = myTribunalManager.getTribunalref();
+
+            // now populate the full list
+
+            if (bResult)
+            {
+                for (int i = 0; i < strListTribunals.Count; i++)
+
+                    this.ListTribunals.Items.Add(strListTribunals[i]);
+            }
+
 
         }
 
@@ -50,7 +66,7 @@ namespace Tribunal4
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           // refresh - MCC to do     
+            // refresh - MCC to do     
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
@@ -63,13 +79,13 @@ namespace Tribunal4
             // Add a tribunal prep
             // First check that the 3 mandatory fields are not null
 
-            if ((this.NewTribunalNumber.Text != "") && 
+            if ((this.NewTribunalNumber.Text != "") &&
                (this.LastName.Text != "") &&
                (this.Firstname.Text != ""))
             {
                 // Tribunal Manager - add record call
 
-                myTribunalManager.CreateNewTribunal(NewTribunalNumber.Text,LastName.Text,Firstname.Text);
+                myTribunalManager.CreateNewTribunal(NewTribunalNumber.Text, LastName.Text, Firstname.Text);
 
             }
             else

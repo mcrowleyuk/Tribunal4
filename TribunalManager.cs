@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Metrics;
+using System.Drawing;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -14,7 +16,7 @@ namespace Tribunal4
 
         public TribunalManager() {; }
 
-        public bool ListTribunals() 
+        public bool ListTribunals(ref List<string> rstrListTribunals) 
         {
            
 
@@ -23,6 +25,8 @@ namespace Tribunal4
             try
             {
                 SqlConnection _con = new SqlConnection(connectionString);
+
+                _con.Open();
 
                 SqlCommand _cmd = new SqlCommand(queryStatement, _con);
 
@@ -33,8 +37,11 @@ namespace Tribunal4
                 while (reader.Read()) 
                 {
                    TribunalReference = reader.GetString(0);// Tribunal Ref retrieved
+
+                    rstrListTribunals.Add(TribunalReference);
                 }
 
+                return true;
 
                 // close connection
 
@@ -90,6 +97,7 @@ namespace Tribunal4
 
         public ref string getTribunalref() { return ref TribunalReference; }
 
+        public List<string> listTribunals;
 
         private string TribunalReference;
         private DateOnly r1Date;
@@ -107,8 +115,9 @@ namespace Tribunal4
 
         private const string queryStatement = "SELECT tribunal_ref FROM Tribunal.dbo.Registration";
 
-        //private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;";  //MCC DEBUG REF TO LOCAL HOSTNAME
-        private const string connectionString = "Data Source=LAPTOP-6RHK6OSN\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;";  //MCC DEBUG REF TO LOCAL HOSTNAME
+        // 06/04/2024 Correct Version
+        private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;TrustServerCertificate=True;";  //MCC DEBUG REF TO LOCAL HOSTNAME
+        
     }
 }
 
