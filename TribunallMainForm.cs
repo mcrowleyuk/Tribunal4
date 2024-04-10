@@ -15,11 +15,9 @@ namespace Tribunal4
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ListTribunalbutton1_Click(object sender, EventArgs e)
         {
             this.TribunalHelpMsg.Visible = true;
-
-            //listBox1.Text = "Button Clicked"; // debug
 
             // event handler to make the sql call and populate listview
 
@@ -46,9 +44,7 @@ namespace Tribunal4
 
                     this.ListTribunals.Items.Add(strListTribunals[i]);
             }
-
-
-        }
+        } // end button1_Click
 
 
 
@@ -64,6 +60,8 @@ namespace Tribunal4
         {
             // MC consider any other close down steps prior to exit
             // SQL connections etc.
+
+            
 
             this.Close();
         }
@@ -112,10 +110,6 @@ namespace Tribunal4
         }
 
 
-        // Create the manager class here
-        TribunalManager myTribunalManager
-            = new TribunalManager();
-
         private void ListTribunals_SelectedIndexChanged(object sender, EventArgs e)
         {
             // On a select item do nothing as yet
@@ -149,5 +143,15 @@ namespace Tribunal4
         {
 
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // Create the manager class here
+        private static TribunalManager myTribunalManager
+            = new TribunalManager();
     }
 }

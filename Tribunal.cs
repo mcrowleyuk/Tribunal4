@@ -11,6 +11,7 @@ namespace Tribunal4
 
         public Tribunal() {; }
 
+        // A Tribunal is associated with a set of Directions
         private CourtDirections courtDirections;
 
 

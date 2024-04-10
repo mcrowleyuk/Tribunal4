@@ -94,9 +94,6 @@ namespace Tribunal4
             return false;
         }
 
-
-        public bool SetR1Date() { return false; } // to do
-
         public bool SetFinalEvidence() { return false; } // to do
 
         public bool SetBundleDue() { return false; } //to do
@@ -106,8 +103,8 @@ namespace Tribunal4
         public List<string> listTribunals;
 
         private string TribunalReference;
-        private DateOnly r1Date;
-        private DateOnly hearingDate;
+        private DateOnly r1Date { get; set; } = new DateOnly();
+        private DateOnly hearingDate { get; set; } = new DateOnly();
 
         // const SQL statements
 

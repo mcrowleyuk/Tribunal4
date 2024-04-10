@@ -16,10 +16,12 @@ namespace TribunalApp
             bSocialCareElement = false;
         }
 
-        // needs copy constructor
-
-
-        //
+        public ExtendedTribunal(ref ExtendedTribunal refExtendedTribunal)
+        {
+            bHealthElement = refExtendedTribunal.bHealthElement;
+            bSocialCareElement = refExtendedTribunal.bSocialCareElement;
+            //TBA more may be required here in due course
+        }
 
         private bool bHealthElement;
         private bool bSocialCareElement;

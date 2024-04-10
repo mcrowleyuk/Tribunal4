@@ -40,6 +40,7 @@
             label2 = new Label();
             label3 = new Label();
             TribunalHelpMsg = new Label();
+            label4 = new Label();
             SuspendLayout();
             // 
             // ShowTribunals
@@ -50,7 +51,7 @@
             ShowTribunals.TabIndex = 0;
             ShowTribunals.Text = "Show Tribunals List";
             ShowTribunals.UseVisualStyleBackColor = true;
-            ShowTribunals.Click += button1_Click;
+            ShowTribunals.Click += ListTribunalbutton1_Click;
             // 
             // ListTribunals
             // 
@@ -153,11 +154,23 @@
             TribunalHelpMsg.Visible = false;
             TribunalHelpMsg.Click += TribunalHelpMsg_Click;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(288, 10);
+            label4.Name = "label4";
+            label4.Size = new Size(179, 28);
+            label4.TabIndex = 12;
+            label4.Text = "Tribunal Manager";
+            label4.Click += label4_Click;
+            // 
             // ExitApp
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label4);
             Controls.Add(TribunalHelpMsg);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -191,5 +204,6 @@
         private Label label2;
         private Label label3;
         private Label TribunalHelpMsg;
+        private Label label4;
     }
 }
