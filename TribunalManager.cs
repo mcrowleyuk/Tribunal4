@@ -8,6 +8,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Tribunal4
 {
@@ -16,9 +17,9 @@ namespace Tribunal4
 
         public TribunalManager() {; }
 
-        public bool ListTribunals(ref List<string> rstrListTribunals) 
+        public bool ListTribunals(ref List<string> rstrListTribunals)
         {
-           
+
 
             //establish connection
 
@@ -34,9 +35,9 @@ namespace Tribunal4
 
                 SqlDataReader reader = _cmd.ExecuteReader();
 
-                while (reader.Read()) 
+                while (reader.Read())
                 {
-                   TribunalReference = reader.GetString(0);// Tribunal Ref retrieved
+                    TribunalReference = reader.GetString(0);// Tribunal Ref retrieved
 
                     rstrListTribunals.Add(TribunalReference);
                 }
@@ -52,14 +53,14 @@ namespace Tribunal4
                 MessageBox.Show("Error establishing SQL Query: Error" + ex.GetType());
             }
 
-            
-            
+
+
             return false; // test only
-        
+
         }
         public bool CreateNewTribunal(string strRef, string strLastName, string strFirstname)
         {
-                    
+
 
             try
             {
@@ -77,7 +78,7 @@ namespace Tribunal4
                 _cmd.Parameters.AddWithValue("@strref", strRef);
                 _cmd.Parameters.AddWithValue("@strLastName", strLastName);
                 _cmd.Parameters.AddWithValue("@strFirstname", strFirstname);
-               
+
 
                 _cmd.ExecuteNonQuery();
 
@@ -108,15 +109,26 @@ namespace Tribunal4
 
         // const SQL statements
 
-        private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) " +
-             "values (@strref, @strLastName, @strFirstname)";
+        //Local version
+        //private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) " +
+        //"values (@strref, @strLastName, @strFirstname)";
 
+        //AWS Version
+        private const string TribunalInsertStatement = "Insert into dbo.Registration (tribunal_ref,last_name,first_name) " +
+         "values (@strref, @strLastName, @strFirstname)";
 
-        private const string queryStatement = "SELECT tribunal_ref FROM Tribunal.dbo.Registration";
+        //Local Version
+        //private const string queryStatement = "SELECT tribunal_ref FROM Tribunal.dbo.Registration";
+
+        //AWS Version
+        private const string queryStatement = "SELECT tribunal_ref FROM dbo.Registration";
+
 
         // 06/04/2024 Correct Version
-        private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;TrustServerCertificate=True;";  //MCC DEBUG REF TO LOCAL HOSTNAME
-        
+        //private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;TrustServerCertificate=True;";  //MCC DEBUG REF TO LOCAL HOSTNAME
+
+
+        private const string connectionString = "server=tcp:mcrowleytest.database.windows.net,1433;Initial Catalog = TribunalNew; Persist Security Info=False;User ID = mcrowleyuk; Password='Merlin231+!'; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 100;";
     }
 }
 
