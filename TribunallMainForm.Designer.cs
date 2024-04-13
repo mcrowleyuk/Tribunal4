@@ -88,7 +88,7 @@
             NewTribunalNumber.Name = "NewTribunalNumber";
             NewTribunalNumber.Size = new Size(187, 27);
             NewTribunalNumber.TabIndex = 4;
-            NewTribunalNumber.Text = "EH734/024/XXX";
+            NewTribunalNumber.Text = "ED555/024/XXX";
             NewTribunalNumber.TextChanged += textBox1_TextChanged_1;
             // 
             // LastName

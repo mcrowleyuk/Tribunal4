@@ -128,7 +128,7 @@ namespace Tribunal4
         //private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;TrustServerCertificate=True;";  //MCC DEBUG REF TO LOCAL HOSTNAME
 
 
-        private const string connectionString = "server=tcp:mcrowleytest.database.windows.net,1433;Initial Catalog = TribunalNew; Persist Security Info=False;User ID = mcrowleyuk; Password='Merlin231+!'; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 100;";
+        private const string connectionString = "server=tcp:mcrowleytest.database.windows.net,1433;Initial Catalog = TribunalNew; Persist Security Info=False;User ID = mcrowleyuk; Password='Iceland231+!'; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 100;";
     }
 }
 

@@ -61,7 +61,7 @@ namespace Tribunal4
             // MC consider any other close down steps prior to exit
             // SQL connections etc.
 
-            
+
 
             this.Close();
         }
@@ -91,7 +91,7 @@ namespace Tribunal4
 
                 MessageBox.Show("Tribunal Record Added");
 
-                this.NewTribunalNumber.Text = "EH234/24/XXXX";
+                this.NewTribunalNumber.Text = "ED555/024/XXX";
                 this.LastName.Text = "";
                 this.Firstname.Text = "";
             }
