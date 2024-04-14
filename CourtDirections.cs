@@ -17,14 +17,14 @@ namespace Tribunal4
             list_directions = new Dictionary<int, string>();
         } // default construtor
         
-        public CourtDirections(ref CourtDirections rcourtDirections) //copy Constructor
+        public CourtDirections(ref CourtDirections rcourtDirections) 
         {    
             list_directions = rcourtDirections.list_directions;
             
         } // Copy Constructor
 
         public void setTribunalRef(ref string rstrTribunalref) { strTribunalref = rstrTribunalref; }
-        public void addDirection(int iDirNum, string direction) {; }
+        public void addDirection(int iDirNum, string direction) {; } // TBC Phase 2
 
         public ref string getTribunalRef() { return ref strTribunalref; }
 

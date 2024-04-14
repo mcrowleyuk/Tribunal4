@@ -42,11 +42,13 @@ namespace Tribunal4
                     rstrListTribunals.Add(TribunalReference);
                 }
 
-                return true;
-
                 // close connection
 
                 _con.Close();
+
+                return true;
+
+               
             }
             catch (Exception ex)
             {
@@ -55,7 +57,7 @@ namespace Tribunal4
 
 
 
-            return false; // test only
+            return false; // debug line not reached
 
         }
         public bool CreateNewTribunal(string strRef, string strLastName, string strFirstname)
@@ -95,9 +97,9 @@ namespace Tribunal4
             return false;
         }
 
-        public bool SetFinalEvidence() { return false; } // to do
+        public bool SetFinalEvidence() { return false; } // to do next phase
 
-        public bool SetBundleDue() { return false; } //to do
+        public bool SetBundleDue() { return false; } //to do to do next phase
 
         public ref string getTribunalref() { return ref TribunalReference; }
 
@@ -109,22 +111,22 @@ namespace Tribunal4
 
         // const SQL statements
 
-        //Local version
-        //private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) " +
-        //"values (@strref, @strLastName, @strFirstname)";
-
+        
         //AWS Version
         private const string TribunalInsertStatement = "Insert into dbo.Registration (tribunal_ref,last_name,first_name) " +
          "values (@strref, @strLastName, @strFirstname)";
 
-        //Local Version
-        //private const string queryStatement = "SELECT tribunal_ref FROM Tribunal.dbo.Registration";
-
+  
         //AWS Version
         private const string queryStatement = "SELECT tribunal_ref FROM dbo.Registration";
 
 
-        // 06/04/2024 Correct Version
+        //Local version
+        //private const string TribunalInsertStatement = "Insert into Tribunal.dbo.Registration (tribunal_ref,last_name,first_name) " +
+        //"values (@strref, @strLastName, @strFirstname)";
+
+
+        // 06/04/2024 Local Version
         //private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;TrustServerCertificate=True;";  //MCC DEBUG REF TO LOCAL HOSTNAME
 
 

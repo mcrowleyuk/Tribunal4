@@ -23,7 +23,7 @@ namespace TribunalApp
             //TBA more may be required here in due course
         }
 
-        private bool bHealthElement;
-        private bool bSocialCareElement;
+        private bool bHealthElement { set; get; } = new bool();
+        private bool bSocialCareElement { set; get; } = new bool();
     }
 }
