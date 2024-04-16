@@ -141,12 +141,12 @@ namespace Tribunal4
 
         private void TribunalHelpMsg_Click(object sender, EventArgs e)
         {
-
+            //TBA
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-
+            //TBA
         }
 
 
