@@ -12,7 +12,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Tribunal4
 {
-    public class TribunalManager : IDisposable
+    public class TribunalManager : IDisposable 
     {
 
         public TribunalManager() {; }
