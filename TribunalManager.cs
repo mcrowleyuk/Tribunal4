@@ -12,10 +12,15 @@ using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Tribunal4
 {
-    public class TribunalManager
+    public class TribunalManager : IDisposable
     {
 
         public TribunalManager() {; }
+
+        ~TribunalManager() { 
+            //Ensure external resource (sql connection) clear up
+            Dispose(); }
+    
 
         public bool ListTribunals(ref List<string> rstrListTribunals)
         {
@@ -93,6 +98,7 @@ namespace Tribunal4
             catch (Exception ex)
             {
                 MessageBox.Show("Error establishing SQL Query: Error" + ex.GetType());
+                Dispose();
             }
             return false;
         }
@@ -102,6 +108,14 @@ namespace Tribunal4
         public bool SetBundleDue() { return false; } //to do to do next phase
 
         public ref string getTribunalref() { return ref TribunalReference; }
+
+
+        public void Dispose() { 
+            _con.Close();
+            GC.SuppressFinalize(this); }
+
+
+        SqlConnection _con;
 
         public List<string> listTribunals;
 
