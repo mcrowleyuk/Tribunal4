@@ -126,7 +126,7 @@ namespace Tribunal4
         // const SQL statements
 
         
-        //AWS Version
+        //Azure Version
         private const string TribunalInsertStatement = "Insert into dbo.Registration (tribunal_ref,last_name,first_name) " +
          "values (@strref, @strLastName, @strFirstname)";
 
@@ -143,7 +143,7 @@ namespace Tribunal4
         // 06/04/2024 Local Version
         private const string connectionString = "server=localhost\\SQLEXPRESS;Initial Catalog=Tribunal;integrated Security=true;TrustServerCertificate=True;";  //MCC DEBUG REF TO LOCAL HOSTNAME
 
-        //AWS Version
+        //Azure Version
         //private const string connectionString = "server=tcp:mcrowleytest.database.windows.net,1433;Initial Catalog = TribunalNew; Persist Security Info=False;User ID = mcrowleyuk; Password='Iceland231+!'; MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 100;";
     }
 }
