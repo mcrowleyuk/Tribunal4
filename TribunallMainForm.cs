@@ -4,7 +4,7 @@ using System.CodeDom;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using Tribunal4;
-
+using TribunalApp;
 
 namespace Tribunal4
 {
@@ -113,7 +113,12 @@ namespace Tribunal4
         private void ListTribunals_SelectedIndexChanged(object sender, EventArgs e)
         {
             // On a select item do nothing as yet
-        }
+
+           AddDirectionForm myAddDirectionForm = new AddDirectionForm();
+
+            myAddDirectionForm.Show();
+
+         }
 
         private void ListTribunals_MouseDoubleClick(object sender, MouseEventArgs e)
         {
